@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Mark Bowler</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header></header>
+
+<main>
+  <h2>Contact</h2>
+
+  <div class="contact-intro">
+    <p>Get in touch using the form below.</p>
+  </div>
+
+  <!--
+    CONTACT FORM via Formspree (free tier, 50 submissions/month).
+    Steps to activate:
+    1. Go to https://formspree.io and create a free account.
+    2. Create a new form — Formspree will give you a form endpoint URL like:
+       https://formspree.io/f/xabcdefg
+    3. Replace YOUR_FORMSPREE_ID below with that ID (just the part after /f/).
+  -->
+  <div class="contact-form">
+    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+      <input type="hidden" name="access_key" value="e304189a-e57a-43b2-a07b-383e9d5a3987">
+      <input type="hidden" name="subject" value="New message from markbmusic.co.uk">
+      <input type="hidden" name="redirect" value="https://www.markbmusic.co.uk/thank-you.html">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="h-captcha" data-captcha="true"></div>
+      <br>
+      <button type="submit" class="btn">Send message</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <section class="mailing-list-section">
+    <h3>Mailing List</h3>
+    <p>Subscribe to my (very occasional) mailing list:</p>
+    <form class="mailchimp-form" action="https://markbmusic.us15.list-manage.com/subscribe/post?u=b76125705f27b5b52a41dfa4a&id=9430c9284a" method="post" target="_blank" novalidate>
+      <input type="email" name="EMAIL" placeholder="your@email.com" required>
+      <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_b76125705f27b5b52a41dfa4a_9430c9284a" tabindex="-1" value=""></div>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer></footer>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
+    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+    if (!hCaptcha) {
+        e.preventDefault();
+        alert("Please complete the captcha");
+        return;
+    }
+});
+</script>
+<script src="shared.js"></script>
+</body>
+</html>
