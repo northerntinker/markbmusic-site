@@ -759,3 +759,14 @@ footer .social-bar {
   margin-bottom: 1rem;
   width: 100%;
 }
+
+/* Footer — centre nav below social icons */
+footer {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer nav ul {
+  justify-content: center;
+}
